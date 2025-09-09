@@ -207,8 +207,6 @@
 }
 
 % -------------------------------------------------------------------------
-
-
  
  % skillsection environment
 \newenvironment{skillsection}[1]{%
@@ -220,26 +218,9 @@
 
 % \cvitem{<Item/Skill:SMALLCAPS>}{<Beschreibung>} 
 \newcommand{\cvitem}[2]{%
-  \textsc{#1} & {\footnotesize #2}\\}
+  \textsc{#1} {\footnotesize #2}\\
+}
 
   %------------------------------ 
  
  \newcommand{\lineheading}[4]{\vspace{1em}\begin{minipage}[t]{#1}\color{#4}\centering\bfseries\icon{#3}{#4}{}\MakeUppercase{#2}\\\rule{0.7\textwidth}{1.5pt}\end{minipage}\vspace{1em}}
-
-%-------------------------------------------- bubbles
-
-\newcommand{\skillbubble}[2]{\centering\tikz\draw[fill=#2,draw=#2] (0,0) circle ({0.0#1\textwidth});}
-% für 6: 0.16, für 5 0.2 - falls 3, als letztes Arg 0.16 Wdh
-\newcommand{\skillbubbletable}[6]{%
-\begin{minipage}[t]{#1\textwidth}
-\begin{tabular}{ m{#2\textwidth} m{#2\textwidth} m{#2\textwidth} m{#2\textwidth} m{#2\textwidth} m{#3\textwidth} l}
-#4 \\[#6] #5 
-\end{tabular}\end{minipage}}
-
-\newcommand{\skillbubbles}[7]{\skillbubble{#2}{#1} & \skillbubble{#3}{#1} & \skillbubble{#4}{#1} & \skillbubble{#5}{#1} & \skillbubble{#6}{#1} & \skillbubble{#7}{#1} & }
-
-\newcommand{\skillbubblelabels}[6]{\centering #1 & \centering #2 & \centering #3 & \centering #4 & \centering #5 & \centering #6 & }
-
-%-------------------------------
-\newcommand{\lorem}{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus.} % Dummy text
-
