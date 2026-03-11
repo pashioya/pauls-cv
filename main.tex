@@ -1,4 +1,4 @@
-\documentclass{modernsimplecv}
+\documentclass[9pt]{modernsimplecv}
 % try out different fonts: classic, fira, raleway, chivo
 \usepackage[utf8]{inputenc}
 \usepackage[margin=1cm, a4paper]{geometry}
@@ -11,24 +11,36 @@
 %\usepackage[sfdefault]{FiraSans} %% option 'sfdefault' activates Fira Sans as the default text font\renewcommand*\oldstylenums[1]{{\firaoldstyle #1}}\normalfont
 %\usepackage[familydefault,light]{Chivo} 
 % \usepackage[sfdefault,light,condensed]{roboto}
-\usepackage[default]{cantarell}
+%\usepackage[default]{cantarell}
 %\usepackage[sfdefault]{AlegreyaSans}
+
+% Custom font: 0xProto
+\usepackage{fontspec}
+\setmainfont[
+    Path=/usr/local/texlive/2025/texmf-dist/fonts/opentype/public/lm/,
+    UprightFont=lmroman10-regular.otf,
+    BoldFont=lmroman10-bold.otf,
+    ItalicFont=lmroman10-italic.otf,
+    BoldItalicFont=lmroman10-bolditalic.otf
+]{lmroman10-regular.otf}
+\newfontfamily\cvtitlefont[Path=fonts/]{0xProto-Regular.otf}
 
 
 \usepackage{beuron}
-\usepackage{LobsterTwo}%if not suposed to be main font, load other main font after this
+%\usepackage{LobsterTwo}%if not suposed to be main font, load other main font after this
 
 \usepackage{hyperref}
 \usepackage{xcolor}
 
+\newcommand{\cvbullet}[1]{\par\hangindent=1em\hangafter=1\noindent\textbullet~#1\par\vspace{0.45em}}%
 
 
-%------------------------------------------------------------------ Variablen
+%------------------------------------------------------------------ Variables
 
 \newlength{\rightcolwidth}
 \newlength{\leftcolwidth}
-\setlength{\leftcolwidth}{0.48\textwidth}
-\setlength{\rightcolwidth}{0.47\textwidth}
+\setlength{\leftcolwidth}{0.60\textwidth}
+\setlength{\rightcolwidth}{0.43\textwidth}
 
 %------------------------------------------------------------------
 \title{Paul's-CV-6-April-2024}
@@ -45,7 +57,7 @@
 
 
 \tikz[remember picture,overlay] {%
-\node[rectangle, fill=white, anchor=north, minimum width=\paperwidth, minimum height=5cm](header) at (current page.north){};%
+\node[rectangle, fill=white, anchor=north, minimum width=\paperwidth, minimum height=5cm] (header) at (current page.north){};%
 }
 
 \begin{minipage}[t]{0.21\textwidth}
@@ -60,31 +72,30 @@
 \begin{minipage}[t]{0.4\textwidth}
 \vspace{0pt} % Trick for alignment
 % here the fancy font can be taken out by removing \LobsterTwo
-{\par\centering\huge\textbf{Paul Ashioya}} \\[0.3cm]
-\faGlobe~ Nationality: Kenyan\\
-\faBirthdayCake~ 13 June, 2001 \\
-\faMapMarker~ Antwerpen, Belgium\\
+{\par\centering\huge{\cvtitlefont{} Paul Ashioya}} \\[0.3cm]
+\faGlobe~Nationality: Kenyan\\
+\faBirthdayCake~13 June, 2001 \\
+\faMapMarker~Antwerpen, Belgium\\
 
 {\small
-\faCommentsO~ \underline{Languages:} \\ 
+\faCommentsO~\underline{Languages:} \\ 
 \emph{English}: Native \\ 
 \emph{Kiswahilli}: Native \\ 
-\emph{German}: B1 \\ 
-\emph{Dutch}: A2\\
-\emph{French}: A1\\}
+\emph{German}: A2 \\ 
+\emph{Dutch}: A2\\}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.55\textwidth}
 \vspace{0pt} % Trick for alignment
-\faPhone~ +32 456036814 \\
-\faAt~ {john.ashioya@gmail.com} \\
+\faPhone~+32 456036814 \\
+\faAt~{john.ashioya@gmail.com} \\
 
 % 2024 & \emph{\href{https://medium.com/@john.ashioya/third-life-simulating-reality-14d7663896dd}{Third Life: Simulating Reality}}, Karel de Grote. \\
 
 %\aiAcademiaSquare 
-\faFont~ \href{https://paul-ashioya.com}{paul-ashioya.com} \\
-\faGithub~ \href{https://github.com/pashioya}{github.com/pashioya} \\
-\faGitlab~ \href{https://gitlab.com/pashioya}{gitlab.com/pashioya} \\
-\faLinkedin~ \href{https://linkedin.com/in/paul-ashioya-1b1023153/}{linkedin.com/in/paul-ashioya-1b1023153} \\
+\faFont~\href{https://paul-ashioya.com}{paul-ashioya.com} \\
+\faGithub~\href{https://github.com/pashioya}{github.com/pashioya} \\
+\faGitlab~\href{https://gitlab.com/pashioya}{gitlab.com/pashioya} \\
+\faLinkedin~\href{https://www.linkedin.com/in/paul-ashioya/}{linkedin.com/in/paul-ashioya/} \\
 
 
 
@@ -101,12 +112,12 @@
 \vspace{-3em}
 
 \setlength{\columnsep}{1.5cm}
-\columnratio{0.48}[0.47]
+\columnratio{0.60}[0.43]
 \begin{paracol}{2}
 \hbadness5000
 %\backgroundcolor{c[1]}[rgb]{1,1,0.8} % cream yellow for column-1 %\backgroundcolor{g}[rgb]{0.8,1,1} % \backgroundcolor{l}[rgb]{0,0,0.7} % dark blue for left margin
 
-\paracolbackgroundoptions
+\paracolbackgroundoptions{}
 
 % 0.9,0.9,0.9 -- 0.8,0.8,0.8
 
@@ -115,13 +126,28 @@
 {
 
 \small
-\section*{Resumé}
-
+\section*{Work Experience}
 \begin{minipage}[t]{\leftcolwidth}
 \begin{tabular}{r| p{0.6\textwidth} c}
-    \cvevent{Nov/24--Now}{Optimile}{Backend Software Developer}{Ghent}{Maintain REST APIs and AMQP queues for EV charging protocols (OCPI, OCHP, OICP). Debug infrastructure issues ensuring platform reliability globally.}{optimile.png} \\
-    \cvevent{Jun/24--Oct/24}{Ag Solution}{Full-Stack System Engineer}{Antwerpen}{Developed enterprise industrial software; implemented security infrastructure and multi-platform deployments.}{agsolution.png} \\
-    \cvevent{2024--2024}{Tryve EU}{Software Engineer Intern}{Antwerp}{Built location-based task management mobile app using React Native.}{tryve.png} \\
+    \cvevent{Nov/24--Now}{Optimile}{Backend Software Developer}{Ghent}{%
+        \raggedright{}
+        \cvbullet{Integrate external services into the company's back-office system (APIs, data flows, Django backend components).} 
+        \cvbullet{Contribute to new features and improvements for the EV charging point management system.}
+        \cvbullet{Set up and maintain roaming connections with other charge point operators so customers can charge on partner networks.}
+        \cvbullet{Implement and maintain interoperability with charging stations from different hardware manufacturers.}
+        \cvbullet{Provide technical support on the backend side for charging station issues (diagnosing, fixing or escalating backend-related problems).}
+        \cvbullet{Maintain REST APIs and AMQP queues for EV charging protocols (OCPI, OCHP, OICP), and debug infrastructure issues to ensure global platform reliability.}
+    }{optimile.png}{\cvtag{Java} \cvtag{Django} \cvtag{Python}} \\
+    \cvevent{Jun/24--Oct/24}{Ag Solution}{Full-Stack System Engineer}{Antwerpen}{Developed enterprise industrial software; implemented security infrastructure and multi-platform deployments.}{agsolution.png}{\cvtag{.Net} \cvtag{Angular} \cvtag{Savigent}} \\
+    \cvevent{Apr/24-- Jun/24}{Tryve EU}{Software Engineer Intern}{Antwerp}{%
+        \raggedright{}
+        \cvbullet{Developed TaskTrove, a mobile app integrating with monday.com and Tryve's Location Toolkit.}
+        \cvbullet{Enabled real-time location tracking and location-based task assignment for field technicians.}
+        \cvbullet{Implemented secure authentication using monday OAuth with GDPR-compliant data handling.}
+        \cvbullet{Added geofencing reminders, customizable tracking, and offline support for reliability.}
+        \cvbullet{Designed intuitive map-based task visualization for project managers.}
+        \cvbullet{Enhanced field productivity through seamless task coordination and live updates.}
+    }{tryve.png}{\cvtag{React Native} \cvtag{Expo} \cvtag{Express-js}} \\
 \end{tabular}
 
 \vspace{4em}
@@ -148,51 +174,31 @@
 
 }
 %-----------------------------------------------------------
-\switchcolumn
+\switchcolumn{}
 
 \section{Skills}
 \begin{multicols}{2}
-% Left Column
-\subsection*{Backend}
 \cvitem{\textbullet}{Java}
-\cvitem{\textbullet}{Django}
-\cvitem{\textbullet}{.Net}
-\cvitem{\textbullet}{NodeJs}
-
-\subsection*{Frontend}
-\cvitem{\textbullet}{HTML/CSS/JavaScript}
-\cvitem{\textbullet}{React}
-\cvitem{\textbullet}{Angular}
-
-% Right Column
-\columnbreak
-
-\subsection*{DevOps}
+\cvitem{\textbullet}{Python \& Django}
 \cvitem{\textbullet}{AWS}
-\cvitem{\textbullet}{G-Cloud}
-\cvitem{\textbullet}{Docker}
+\cvitem{\textbullet}{Google Cloud}
 \cvitem{\textbullet}{PostgreSQL}
-
-\subsection*{Data \& AI}
-\cvitem{\textbullet}{Python}
-\cvitem{\textbullet}{Machine Learning}
-\cvitem{\textbullet}{Forecasting}
-
+\cvitem{\textbullet}{Proxmox}
+\cvitem{\textbullet}{Networking}
 \end{multicols}
 
 
 \bigskip
 
-\begin{minipage}[t]{\leftcolwidth}
-\section*{Education}
-\begin{tabular}{r p{0.6\textwidth} c}
-    \cvdegree{2018 - 2021}{International Baccalaureate}{I.B.}{Berlin International School}{}{ib.png} \\
-    \cvdegree{2021 - 2024}{Applied Computer Science}{B.S.}{Karel de Grote - Antwerp}{}{kdg.png} 
+\section*{Education \& Certificates}
+\begin{tabular}{r p{0.55\rightcolwidth} c}
+    \cvdegree{2025}{Dutch A2}{NT2}{CVO Vivant}{}{vivant.png} \\
+    \cvdegree{2024}{Applied Computer Science}{B.S.}{Karel de Grote /- Antwerp}{}{kdg.png} 
 \end{tabular}
-\end{minipage}\hfill
+
 \section*{References}
-\begin{tabular}{r| p{0.6\textwidth} c}
-    \cvevent{Ag-Solution}{Nils Alves}{Team Lead}{}{Number: +351 914 663 188 \newline Email: nils.alves@agsolution.be}{agsolution.png} \\
+\begin{tabular}{r| p{0.45\rightcolwidth} c}
+    \cvevent{Ag-Solution}{Nils Alves}{Team Lead}{}{Number: +351 914 663 188 \newline Email: nils.alves@agsolution.be}{agsolution.png}{} \\
 \end{tabular}
 \end{paracol}
 
