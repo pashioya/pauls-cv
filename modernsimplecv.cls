@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{modernsimplecv}[2019/09/18 A Modern Simple CV]
 
-\LoadClass[]{article}
+\LoadClassWithOptions{extarticle}
 \RequirePackage{xcolor}
 
 \newcommand{\paracolbackgroundoptions}{

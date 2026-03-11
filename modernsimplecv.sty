@@ -1,6 +1,16 @@
 
 
-\usepackage{fontawesome}
+% Use Font Awesome 5 (bundled in TeX Live) and keep old macro names.
+\usepackage{fontawesome5}
+\providecommand{\faGlobe}{\faIcon{globe}}
+\providecommand{\faBirthdayCake}{\faIcon{birthday-cake}}
+\providecommand{\faMapMarker}{\faIcon{map-marker-alt}}
+\providecommand{\faCommentsO}{\faIcon{comments}}
+\providecommand{\faPhone}{\faIcon{phone}}
+\providecommand{\faAt}{\faIcon{at}}
+\providecommand{\faFont}{\faIcon{globe}}
+\providecommand{\faGitlab}{\faIcon{gitlab}}
+\providecommand{\faUniversity}{\faIcon{university}}
 \usepackage{hyperref}
 \setlength{\parindent}{0cm}
 \usepackage{paracol}
@@ -172,10 +182,10 @@
 {\color{#3}\rule[\baselineskip]{#1\textwidth}{#2}}\vspace{0.5em}
 }
 
-\newcommand{\cvevent}[6]{{#1} & \textbf{#2}\newline\textsc{#3} $\cdot$ {#4 ~\faMapMarker}\newline{\color{black!70}\footnotesize #5}\vspace{1.5em} & \raisebox{-0.7\height}{\includegraphics[width=1cm]{#6}}}
+\newcommand{\cvevent}[7]{{#1} & \textbf{#2}\par\textsc{#3} $\cdot$ {#4}\par{\color{black!70}\footnotesize #5}\par{\footnotesize #7}\vspace{1.0em} & \raisebox{-0.7\height}{\includegraphics[width=1cm]{#6}}}
 
 
-\newcommand{\cvdegree}[6]{{#1} & \textbf{#2}\newline\textsc{#3} $\cdot$ {#4 {\phantom{i}\footnotesize ~\faUniversity}}\newline{\color{black!70}\scriptsize #5}\vspace{0.5em} & \raisebox{-0.7\height}{\includegraphics[height=0.5cm]{#6}}}
+\newcommand{\cvdegree}[6]{{#1} & \textbf{#2}\newline\textsc{#3} $\cdot$ {#4}\newline{\color{black!70}\scriptsize #5}\vspace{0.5em} & \raisebox{-0.7\height}{\includegraphics[height=0.5cm]{#6}}}
 
 
 
